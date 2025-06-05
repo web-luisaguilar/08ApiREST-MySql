@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 let express = require('express'),
   bodyParser = require('body-parser'),
@@ -8,11 +8,11 @@ let express = require('express'),
   publicDir = express.static(`${__dirname}/public`),
   viewDir = `${__dirname}/views`,
   port = process.env.PORT || 3000,
-  app = express();
+  app = express()
 
 app
   .set('views', viewDir)
-  .set('view engine', 'jade')
+  .set('view engine', 'pug')
   .set('port', port)
 
   //Midlewares
@@ -25,14 +25,14 @@ app
     methodOverride((req, res) => {
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
         // look in urlencoded POST bodies and delete it
-        var method = req.body._method;
-        delete req.body._method;
-        return method;
+        var method = req.body._method
+        delete req.body._method
+        return method
       }
     })
   )
   .use(logger('dev'))
   .use(publicDir)
-  .use(routes);
+  .use(routes)
 
-module.exports = app;
+module.exports = app

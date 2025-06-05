@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const mysql = require('mysql'),
   conf = require('./db-conf.json'),
@@ -8,14 +8,18 @@ const mysql = require('mysql'),
     user,
     port,
     password: pass,
-    database: db,
+    database: db
   },
-  myConn = mysql.createConnection(dbOptions);
+  myConn = mysql.createPool(dbOptions)
 
-myConn.connect((err) => {
-  return err
-    ? console.log(`Error al conectarse a la base de datos: ${err.stack}`)
-    : console.log(`Conexion establecida con Exito N°: ${myConn.threadId}`);
-});
+myConn.getConnection((err, connection) => {
+  if (err) {
+    console.log(`Error al conectarse a la base de datos: ${err.stack}`)
+    return
+  }
+  console.log(`Conexion establecida con Exito N°: ${myConn.threadId}`)
 
-module.exports = myConn;
+  connection.release()
+})
+
+module.exports = myConn

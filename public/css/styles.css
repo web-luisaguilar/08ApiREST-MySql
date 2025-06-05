@@ -30,7 +30,9 @@ li {
   background-color: #303030;
   color: #80bd01;
 }
-
+input {
+  color: black;
+}
 table {
   width: 100%;
 }
