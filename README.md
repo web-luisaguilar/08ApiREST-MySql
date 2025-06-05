@@ -2,16 +2,43 @@
 
 ---
 
-Pequeña aplicacion con **Node** usando **MySql** como base de datos
+Pequeña aplicacion con **Express** usando **MySql** como base de datos
 
-Usando caracteristicas basicas de una Api REST
+Caracteristicas basicas de la Api REST:
 
-- GET
-- POST
-- PUT
-- DELETE
+- GET (obtener todos los datos)
+- POST (agregar un nuevo registro)
+- PUT (actualizar un registro)
+- DELETE (eliminar un registro)
 
-## Primer Inicio
+## Instalacion con Docker
+
+Para iniciar la aplicacion con docker es necesario:
+
+- Iniciar el docker deamond o usar docker desktop
+
+### Iniciar con docker-compose
+
+Dentro de la carpeta del proyecto:
+
+```bash
+docker-compose up --watch --build
+```
+
+Esto crear un contenedor con la aplicacion y con el contenedor de mysql.
+
+Una vez que se termine de iniciar el contenedor la aplicacion estara disponible en el puerto **3000**.
+
+> URL:
+> https://localhost:3000
+
+Donde deberia aparecer la siguiente imagen:
+
+![api-rest-mysql](https://raw.githubusercontent.com/web-luisaguilar/08ApiREST-MySql/refs/heads/master/public/img/home-app-preview.png)
+
+> _En caso de mostrarse un error, esperar unos segundos y refrescar la pagina._
+
+## Instalacion Manual
 
 **Requisitos Previos:**
 
